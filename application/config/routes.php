@@ -39,7 +39,8 @@
 */
 
 $route['default_controller'] = "welcome";
-$route['404_override'] = '';
+$route['blog/:any'] = "blog";
+$route['404_override'] = 'welcome';
 
 
 /* End of file routes.php */
