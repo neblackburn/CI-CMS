@@ -12,13 +12,14 @@ class Blog extends CI_Controller {
 	{
 		if ($entries = $this->blog_m->get_entry_by_permalink($this->uri->segment_array()[2])) {
 			foreach ($entries as $entry) {
-				//var_dump($entry);
-				$data['entry']['title'] = $entry->title;
-				$data['entry']['content'] = $entry->content;
-				$data['entry']['userId'] = $entry->userId;
-				$data['entry']['permalink'] = $entry->permalink;
+				foreach ($entry as $k => $v) {
+					$data['entry'][$k] = $v;
+				}
 			}
+			$data['title'] = $data['entry']['title'];
+			$this->load->view('main/header',$data);
 			$this->load->view('blog/entry_view',$data);
+			$this->load->view('main/footer',$data);
 		}
 	}
 }

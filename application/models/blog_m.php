@@ -7,6 +7,8 @@ class Blog_m extends CI_Model {
 	private $content;
 	private $userId;
 	private $title;
+	private $publishDate;
+	private $updateDate;
 
 	function __construct() {
 		parent::__construct();
@@ -29,8 +31,11 @@ class Blog_m extends CI_Model {
 	// neal: mo advanced 
 	function get_entry_by_permalink($permalink='') {
 		$slug = array($permalink);
+		$this->db->select('content.*, users.displayName');
+		$this->db->from('content');
+		$this->db->join('users', 'users.id=content.userId');
 		$this->db->where_in('permalink', $slug);
-		$query = $this->db->get('content');
+		$query = $this->db->get();
 		return $query->result();
 	}
 
