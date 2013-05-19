@@ -34,6 +34,7 @@ class Blog_m extends CI_Model {
 		$this->db->select('content.*, users.displayName');
 		$this->db->from('content');
 		$this->db->join('users', 'users.id=content.userId');
+		$this->db->where('contentTypeId', '2');
 		$this->db->where_in('permalink', $slug);
 		$query = $this->db->get();
 		return $query->result();

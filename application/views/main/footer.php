@@ -2,7 +2,7 @@
             <hr>
 
             <footer>
-                <p>&copy; Company 2012</p>
+                <p>&copy; <?php if (COPYRIGHT_INFO) { echo COPYRIGHT_INFO; } ?> <?php echo strftime('%Y',time()); ?></p>
             </footer>
 
         </div> <!-- /container -->

@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title><?php echo $title; ?></title>
+        <title><?php echo isset($title) ? $title:''; ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -39,7 +39,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Project name</a>
+                    <a class="brand" href="<?php echo base_url(); ?>"><?php if (WEBSITE_NAME) { echo WEBSITE_NAME; } ?></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="#">Home</a></li>
