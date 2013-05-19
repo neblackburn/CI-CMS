@@ -1,4 +1,4 @@
-nealsowncmsCI
+CI-CMS
 =============
 
-Using CodeIgniter to build a simple cms
+A simple Codeigniter driven CMS
