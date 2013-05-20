@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 18, 2013 at 11:30 AM
+-- Generation Time: May 19, 2013 at 05:02 PM
 -- Server version: 5.5.31-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2
 
@@ -23,10 +23,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `ip` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `content`
 --
 
-DROP TABLE IF EXISTS `content`;
 CREATE TABLE IF NOT EXISTS `content` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `contentTypeId` int(11) NOT NULL,
@@ -54,7 +68,6 @@ INSERT INTO `content` (`id`, `contentTypeId`, `content`, `userId`, `title`, `per
 -- Table structure for table `contentTypes`
 --
 
-DROP TABLE IF EXISTS `contentTypes`;
 CREATE TABLE IF NOT EXISTS `contentTypes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
@@ -72,23 +85,23 @@ INSERT INTO `contentTypes` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `preferences`
+-- Table structure for table `sitePreferences`
 --
 
-DROP TABLE IF EXISTS `preferences`;
-CREATE TABLE IF NOT EXISTS `preferences` (
+CREATE TABLE IF NOT EXISTS `sitePreferences` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `preferences`
+-- Dumping data for table `sitePreferences`
 --
 
-INSERT INTO `preferences` (`id`, `name`, `value`) VALUES
-(1, 'website_name', 'Neal''s Own Parking Spot');
+INSERT INTO `sitePreferences` (`id`, `name`, `value`) VALUES
+(1, 'websiteName', 'Neal''s Own Parking Spot'),
+(2, 'copyrightInfo', 'AmsCMS');
 
 -- --------------------------------------------------------
 
@@ -96,7 +109,6 @@ INSERT INTO `preferences` (`id`, `name`, `value`) VALUES
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
@@ -110,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `displayName`, `hash`) VALUES
-(1, 'my@email.com', 'Neal', 1234567890);
+(1, 'neblackburn@gmail.com', 'Neal', 1234567890);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

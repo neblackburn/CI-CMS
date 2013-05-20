@@ -10,16 +10,23 @@ class Contact extends MY_Controller {
 
 	public function index()
 	{
-        $data['title'] = $data['entry']['title'];
+        //$data['title'] = $data['entry']['title'];
         //var_dump($data);
 
-        $this->load->view('main/header',$data);
-        $this->load->view('blog/contact_view',$data);
-        $this->load->view('main/footer',$data);
+        $this->load->view('main/header');
+        $this->load->view('contact_view');
+        $this->load->view('main/footer');
 	}
+
+    public function submit()
+    {
+        $this->load->view('main/header');
+        $this->load->view('contact_view');
+        $this->load->view('main/footer');
+    }
 
 
 }
 
-/* End of file blog.php */
-/* Location: ./application/controllers/blog.php */
+/* End of file contact.php */
+/* Location: ./application/controllers/contact.php */

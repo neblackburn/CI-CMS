@@ -2,7 +2,11 @@
 
 class Contact_m extends CI_Model {
 
-	//private $id = false;
+	private $id = false;
+	private $name;
+	private $email;
+	private $message;
+	private $ip;
 
 	function __construct() {
 		parent::__construct();

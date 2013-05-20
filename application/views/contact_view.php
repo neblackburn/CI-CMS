@@ -1,5 +1,5 @@
 <div class="TTWForm-container">
-<form action="process_form.php" class="TTWForm" method="post" novalidate="">
+<?php echo form_open('contact/submit'); ?>
 <div id="field1-container" class="field f_100">
 <label for="field1">
 Name
@@ -21,5 +21,5 @@ Message
 <div id="form-submit" class="field f_100 clearfix submit">
 <input value="submit" type="submit">
 </div>
-</form>
+<?php echo form_close(); ?>
 </div>
