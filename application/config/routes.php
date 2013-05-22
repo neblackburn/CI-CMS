@@ -40,7 +40,7 @@
 
 $route['default_controller'] = "welcome";
 $route['blog/:any'] = "blog";
-$route['404_override'] = 'welcome';
+$route['404_override'] = 'pages';
 
 
 /* End of file routes.php */
