@@ -19,7 +19,6 @@ class Pages extends MY_Controller {
 			}
 			$data['title'] = $data['page']['title'];
 			$this->load->view('main/header',$data);
-            //var_dump($data);
 			$this->load->view('pages/page_view',$data);
 			$this->load->view('main/footer',$data);
 		} else {

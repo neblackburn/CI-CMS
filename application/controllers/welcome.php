@@ -19,7 +19,15 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
+        $this->load->model('site_preferences_m');
+        $home_page_id = $this->site_preferences_m->get_site_preference('homePageId');
+
+        $this->load->model('pages_m');
+        $data['page'] = $this->pages_m->read_page($home_page_id);
+
 		$this->load->view('main/header');
+		$this->load->view('pages/page_view',$data);
+        //var_dump($data['page']);
 		$this->load->view('main/footer');
 	}
 }

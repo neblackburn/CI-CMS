@@ -34,4 +34,17 @@ class Site_preferences_m extends CI_Model {
         }
 	}
 
+	function get_site_preference($name)
+    {
+		$this->db->select('value');
+		$this->db->from('sitePreferences');
+		$this->db->where('name', $name);
+		$query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result()[0]->value;
+        } else {
+            return false;
+        }
+	}
+
 }

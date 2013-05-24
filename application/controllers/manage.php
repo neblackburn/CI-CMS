@@ -2,6 +2,12 @@
 
 class Manage extends MY_Controller {
 
+    function __construct()
+    {
+        parent::__construct();
+        authenticate();
+    }
+
 	/**
 	 * Index Page for this controller.
 	 *

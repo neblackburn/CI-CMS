@@ -15,11 +15,21 @@ class Pages_m extends CI_Model {
 	}
 
 	// neal: basic CRUD (insert, get, update, delete)
-	function insert_page() {
+	function create_page() {
 	}
 
-	function get_page($id=0) {
-		
+	function read_page($id=FALSE) {
+        if ($id) {
+            $this->db->select('content.*, users.displayName');
+            $this->db->from('content');
+            $this->db->join('users', 'users.id=content.userId');
+            $this->db->where('content.contentTypeId', '1');
+            $this->db->where('content.id', $id);
+            $query = $this->db->get();
+            return $query->result_array()[0];
+        } else {
+            return FALSE;
+        }
 	}
 
 	function update_page() {
@@ -34,7 +44,7 @@ class Pages_m extends CI_Model {
 		$this->db->select('content.*, users.displayName');
 		$this->db->from('content');
 		$this->db->join('users', 'users.id=content.userId');
-		$this->db->where('contentTypeId', '1');
+        $this->db->where('content.contentTypeId', '1');
 		$this->db->where_in('permalink', $slug);
 		$query = $this->db->get();
 		return $query->result();
